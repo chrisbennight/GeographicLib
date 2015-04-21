@@ -12,7 +12,7 @@
   <version>1.40</version>
 
   <packaging>jar</packaging>
-
+  
   <description>
     This is a Java implementation of the geodesic algorithms from
     GeographicLib. This is a self-contained library which makes it
@@ -35,6 +35,13 @@
   </dependencies>
 
   <build>
+	<extensions>
+		<extension>
+			<groupId>org.springframework.build</groupId>
+			<artifactId>aws-maven</artifactId>
+			<version>5.0.0.RELEASE</version>
+		</extension>
+	</extensions>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -77,6 +84,11 @@
   </build>
 
   <distributionManagement>
+		<repository>
+			<id>third-party-maven</id>
+			<name>third party repo</name>
+			<url>s3://third-party-maven/release</url>
+		</repository>
   </distributionManagement>
 
   <scm>
